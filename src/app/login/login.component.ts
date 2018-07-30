@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
+import { AuthenticateService} from '../shared/authenticate.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,16 +11,30 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
+  returnUrl: string;
 
-  constructor( private formBuilder: FormBuilder,) { }
+  constructor(private fb: FormBuilder,
+              private auth: AuthenticateService,
+              private route: ActivatedRoute,
+              private router: Router
+  ) { }
 
   ngOnInit() {
-    this.loginForm = this.formBuilder.group({
+    this.loginForm = this.fb.group({
       'email' : [null, [Validators.required, Validators.email]],
       'password' : [null, Validators.required],
     });
 
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/' ;
+
+  }
+
+  login(formData: NgForm) {
+    return this.auth.login(formData).subscribe(
+      (user) => {
+        console.log(user);
+        this.router.navigate([this.returnUrl]);
+      });
   }
 
 }
