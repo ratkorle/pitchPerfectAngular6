@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   constructor(private config: ConfigService) { }
 
   ngOnInit() {
-    this.getHeader();
+    this.header = this.getHeader();
   }
   getHeader() {
    return this.config.getConfig().header;

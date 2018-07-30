@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfigService } from '../shared/config.service';
 
 @Component({
   selector: 'app-content-section',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentSectionComponent implements OnInit {
 
-  constructor() { }
+  services = {};
+
+  constructor(private config: ConfigService) { }
 
   ngOnInit() {
+    this.services = this.getServices();
+  }
+  getServices(){
+    return this.config.getConfig().services;
   }
 
 }
