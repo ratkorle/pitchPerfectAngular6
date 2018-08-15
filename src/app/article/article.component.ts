@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import {ConfigService} from "../shared/config.service";
+import { ConfigService } from '../shared/config.service';
+import { Post } from '../shared/post';
 
 
 @Component({
@@ -10,17 +11,19 @@ import {ConfigService} from "../shared/config.service";
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent implements OnInit {
-  post = {};
+  post: Post;
 
   constructor(private route: ActivatedRoute, private config: ConfigService, private location: Location) { }
 
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.post = this.getPostById(id);
+    this.getPostById(id);
   }
 
   getPostById(id: number) {
-    return this.config.getPostByID(id);
+    return this.config.getPostByID(id).subscribe(
+      post => this.post = post
+    );
   }
 
   getBack() {

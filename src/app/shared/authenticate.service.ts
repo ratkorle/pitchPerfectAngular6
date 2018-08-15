@@ -56,4 +56,18 @@ export class AuthenticateService {
     }
   }
 
+  isloggedIn() {
+    if (localStorage.getItem('currentUser')) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  getUser() {
+    if (this.isloggedIn) {
+      return JSON.parse(localStorage.getItem('currentUser'));
+    }
+  }
+
 }

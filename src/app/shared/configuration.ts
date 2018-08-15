@@ -95,19 +95,6 @@ export const configuration = {
   ],
   blog: {
     tagline: 'MY BLOG',
-    title: 'Thoughts become things..',
-    posts: [
-      {id: 1, title: 'Lay Low', author: 'Ratko Korlevski', image: 'gallery-image-1.jpg', publishdate: '2018-06-19T07:22Z', excert: 'This is the summary of the article...'},
-      {id: 2, title: 'Responsive Design Tips', author: 'Ratko Korlevski', image: 'gallery-image-2.jpg', publishdate: '2018-06-19T07:22Z', excert: 'This is the summary of the article...'},
-      {id: 3, title: 'Focus', author: 'Viktorija Dodova', image: 'gallery-image-3.jpg', publishdate: '2018-06-19T07:22Z', excert: 'This is the summary of the article...'},
-      {id: 4, title: 'Plan your Time', author: 'Deni Popovski', image: 'gallery-image-4.jpg', publishdate: '2018-06-19T07:22Z', excert: 'This is the summary of the article...'},
-      {id: 5, title: 'Why so serious?', author: 'Ratko Korlevski', image: 'gallery-image-5.jpg', publishdate: '2018-06-19T07:22Z', excert: 'This is the summary of the article...'},
-      {id: 6, title: 'Get Going', author: 'Viktorija Dodova', image: 'gallery-image-6.jpg', publishdate: '2018-06-19T07:22Z', excert: 'This is the summary of the article...'},
-      {id: 7, title: 'Land of promises', author: 'Leo Leo Tip', image: 'gallery-image-1.jpg', publishdate: '2018-06-19T07:22Z', excert: 'This is the summary of the article...'},
-      {id: 8, title: 'Learn to learn', author: 'Tup Tip Teo', image: 'gallery-image-3.jpg', publishdate: '2018-06-19T07:22Z', excert: 'This is the summary of the article...'},
-      {id: 9, title: 'Bee Model', author: 'Ratko Korlevski', image: 'gallery-image-5.jpg', publishdate: '2018-06-19T07:22Z', excert: 'This is the summary of the article...'},
-      {id: 10, title: 'Eat Healthy Food', author: 'Viktorija Dodova', image: 'gallery-image-2.jpg', publishdate: '2018-06-19T07:22Z', excert: 'This is the summary of the article...'},
-      {id: 11, title: 'Trouble Double', author: 'Ratko Korlevski', image: 'gallery-image-6.jpg', publishdate: '2018-06-19T07:22Z', excert: 'This is the summary of the article...'},
-    ]
+    title: 'Thoughts become things..'
   }
 };

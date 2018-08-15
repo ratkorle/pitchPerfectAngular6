@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ConfigService} from '../shared/config.service';
 import {PagerService} from '../shared/pager.service';
+import {Post} from "../shared/post";
 
 @Component({
   selector: 'app-blog',
@@ -13,17 +14,28 @@ export class BlogComponent implements OnInit {
   pages: any[];
   pageSize = 3;
   pager: any = {};
+  posts: Post[];
 
   constructor(private config: ConfigService, private pagerService: PagerService) { }
 
   ngOnInit() {
     this.blog = this.getBlog();
-    this.allItems = this.blog.posts;
-    this.setPage(1);
+    this.getPosts();
   }
+
   getBlog() {
     return this.config.getConfig().blog;
   }
+  getPosts() {
+    this.config.getPosts().subscribe(
+      posts => {
+        this.posts = posts;
+        this.allItems = this.posts;
+        this.setPage(1);
+      }
+    )
+  }
+
   setPage(pageNumber: number) {
     // create a pager using paging service
     this.pager = this.pagerService.getPager(this.allItems.length, pageNumber, this.pageSize);

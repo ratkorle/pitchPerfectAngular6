@@ -15,6 +15,8 @@ import {RouteGuardService} from "./shared/route-guard.service";
 import {LoginComponent} from "./login/login.component";
 import {SignComponent} from "./sign/sign.component";
 import {ContactComponent} from "./contact/contact.component";
+import { ArticleEditComponent } from './article-edit/article-edit.component';
+import { ArticleCreateComponent } from './article-create/article-create.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -25,8 +27,10 @@ const routes: Routes = [
   {path: 'testimonials', component: TestimonialsComponent},
   {path: 'clients', component: ClientsComponent},
   {path: 'pricing', component: PricingComponent},
-  {path: 'blog', component: BlogComponent,canActivate: [RouteGuardService]},
+  {path: 'blog', component: BlogComponent, canActivate: [RouteGuardService]},
   {path: 'article/:id', component: ArticleComponent},
+  {path: 'article-edit/:id', component: ArticleEditComponent, canActivate: [RouteGuardService]},
+  {path: 'article-create', component: ArticleCreateComponent, canActivate: [RouteGuardService]},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignComponent},
   {path: 'contact', component: ContactComponent},

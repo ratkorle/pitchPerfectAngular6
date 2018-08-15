@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfigService } from '../shared/config.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-gallery',
